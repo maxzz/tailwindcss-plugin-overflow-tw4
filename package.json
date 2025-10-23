@@ -17,14 +17,14 @@
         "css"
     ],
     "type": "module",
-    "main": "./dist/index.cjs",
-    "module": "./dist/index.js",
-    "types": "./dist/index.d.ts",
+    "main": "./dist/tw-overflow.cjs",
+    "module": "./dist/tw-overflow.js",
+    "types": "./dist/tw-overflow.d.ts",
     "exports": {
         ".": {
-            "import": "./dist/index.js",
-            "require": "./dist/index.cjs",
-            "types": "./dist/index.d.ts"
+            "import": "./dist/tw-overflow.js",
+            "require": "./dist/tw-overflow.cjs",
+            "types": "./dist/tw-overflow.d.ts"
         }
     },
     "files": [

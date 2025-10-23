@@ -92,12 +92,3 @@ export function overflowPlugin({ addUtilities }: plugin.PluginAPI) {
 };
 
 export default overflowPlugin;
-
-// For debugging purposes when run with tsx
-if (typeof process !== 'undefined' && import.meta.url === `file:///${process.argv[1]?.replace(/\\/g, '/')}`) {
-    console.log('Tailwind CSS Overflow Overlay Plugin loaded successfully!');
-    console.log('Available utilities:');
-    console.log('  - .overflow-overlay');
-    console.log('  - .overflow-x-overlay');
-    console.log('  - .overflow-y-overlay');
-}

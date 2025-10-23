@@ -1,7 +1,9 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-    entry: ['src/index.ts'],
+    entry: {
+        'tw-overflow': 'src/index.ts',
+    },
     format: ['esm', 'cjs'],
     dts: true,
     sourcemap: true,
