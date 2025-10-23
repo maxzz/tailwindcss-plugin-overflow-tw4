@@ -43,7 +43,7 @@
     "scripts": {
         "build": "tsup",
         "dev": "tsup --watch",
-        "debug": "tsx src/index.ts",
+        "debug": "tsx test/index.ts",
         "prepublishOnly": "pnpm run build",
         "publish:npm": "npm publish"
     }

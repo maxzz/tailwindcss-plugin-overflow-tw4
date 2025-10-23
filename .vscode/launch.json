@@ -17,12 +17,12 @@
       "cwd": "${workspaceFolder}"
     },
     {
-      "name": "Debug Plugin (Direct tsx)",
+      "name": "Debug Test (Direct tsx)",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/tsx",
       "runtimeArgs": [
-        "src/index.ts"
+        "src/test/index.ts"
       ],
       "skipFiles": [
         "<node_internals>/**"
