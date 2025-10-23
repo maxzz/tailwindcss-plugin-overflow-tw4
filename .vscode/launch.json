@@ -22,7 +22,7 @@
       "request": "launch",
       "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/tsx",
       "runtimeArgs": [
-        "src/test/index.ts"
+        "test/index.ts"
       ],
       "skipFiles": [
         "<node_internals>/**"
