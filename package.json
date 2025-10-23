@@ -1,7 +1,21 @@
 {
     "name": "tailwindcss-plugin-overflow-tw4",
     "version": "0.1.0",
+    "author": "Max Zakharzhevskiy",
+    "license": "MIT",
     "description": "Tailwind CSS v4 plugin for overflow overlay utilities",
+    "packageManager": "pnpm@10.0.0",
+    "engines": {
+        "node": ">=18.0.0",
+        "pnpm": ">=10.0.0"
+    },
+    "keywords": [
+        "tailwindcss",
+        "tailwindcss-plugin",
+        "tailwind",
+        "overflow",
+        "css"
+    ],
     "type": "module",
     "main": "./dist/index.cjs",
     "module": "./dist/index.js",
@@ -16,22 +30,6 @@
     "files": [
         "dist"
     ],
-    "scripts": {
-        "build": "tsup",
-        "dev": "tsup --watch",
-        "debug": "tsx src/index.ts",
-        "prepublishOnly": "pnpm run build",
-        "publish:npm": "npm publish"
-    },
-    "keywords": [
-        "tailwindcss",
-        "tailwindcss-plugin",
-        "tailwind",
-        "overflow",
-        "css"
-    ],
-    "author": "",
-    "license": "MIT",
     "peerDependencies": {
         "tailwindcss": "^4.0.0"
     },
@@ -42,9 +40,11 @@
         "tsx": "^4.19.2",
         "typescript": "^5.6.3"
     },
-    "packageManager": "pnpm@10.0.0",
-    "engines": {
-        "node": ">=18.0.0",
-        "pnpm": ">=10.0.0"
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "debug": "tsx src/index.ts",
+        "prepublishOnly": "pnpm run build",
+        "publish:npm": "npm publish"
     }
 }

@@ -1,5 +1,5 @@
-import plugin from 'tailwindcss/plugin';
-import type { PluginAPI } from 'tailwindcss/plugin';
+import * as plugin from 'tailwindcss/plugin';
+//import { type PluginAPI } from 'tailwindcss/plugin';
 
 /**
  * Tailwind CSS v4 Plugin for Overflow Overlay Utilities
@@ -8,7 +8,7 @@ import type { PluginAPI } from 'tailwindcss/plugin';
  * The overflow-overlay value is a legacy scrollbar behavior that can be useful
  * for custom scrollbar implementations.
  */
-const overflowPlugin = plugin(function ({ addUtilities }: PluginAPI) {
+export function overflowPlugin({ addUtilities }: plugin.PluginAPI) {
     addUtilities({
         '.overflow-overlay': {
             overflow: 'overlay',
@@ -20,7 +20,7 @@ const overflowPlugin = plugin(function ({ addUtilities }: PluginAPI) {
             overflowY: 'overlay',
         },
     });
-});
+};
 
 export default overflowPlugin;
 
