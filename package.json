@@ -1,0 +1,50 @@
+{
+    "name": "tailwindcss-plugin-overflow-tw4",
+    "version": "0.1.0",
+    "description": "Tailwind CSS v4 plugin for overflow overlay utilities",
+    "type": "module",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "debug": "tsx src/index.ts",
+        "prepublishOnly": "pnpm run build",
+        "publish:npm": "npm publish"
+    },
+    "keywords": [
+        "tailwindcss",
+        "tailwindcss-plugin",
+        "tailwind",
+        "overflow",
+        "css"
+    ],
+    "author": "",
+    "license": "MIT",
+    "peerDependencies": {
+        "tailwindcss": "^4.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "^22.0.0",
+        "tailwindcss": "^4.0.0",
+        "tsup": "^8.3.5",
+        "tsx": "^4.19.2",
+        "typescript": "^5.6.3"
+    },
+    "packageManager": "pnpm@10.0.0",
+    "engines": {
+        "node": ">=18.0.0",
+        "pnpm": ">=10.0.0"
+    }
+}
