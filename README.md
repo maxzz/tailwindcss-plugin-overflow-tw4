@@ -14,10 +14,12 @@ yarn add tailwindcss-plugin-overflow-tw4
 
 ## Usage
 
-Add the plugin to your Tailwind CSS configuration:
+### Tailwind CSS v4
+
+Add the plugin to your Tailwind CSS v4 configuration:
 
 ```javascript
-// tailwind.config.js
+// tailwind.config.js or tailwind.config.ts
 import overflowPlugin from 'tailwindcss-plugin-overflow-tw4';
 
 export default {
@@ -27,24 +29,96 @@ export default {
 };
 ```
 
+Or if using ESM in a JavaScript file:
+
+```javascript
+// tailwind.config.js
+import overflowPlugin from 'tailwindcss-plugin-overflow-tw4';
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
+  plugins: [overflowPlugin],
+};
+```
+
+### Tailwind CSS v3
+
+For Tailwind CSS v3, use CommonJS format:
+
+```javascript
+// tailwind.config.js
+const overflowPlugin = require('tailwindcss-plugin-overflow-tw4');
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
+  plugins: [overflowPlugin],
+};
+```
+
+Or with ES modules:
+
+```javascript
+// tailwind.config.mjs
+import overflowPlugin from 'tailwindcss-plugin-overflow-tw4';
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
+  plugins: [overflowPlugin],
+};
+```
+
 ## Available Utilities
 
 This plugin provides the following utilities:
 
-- `.overflow-overlay` - Sets `overflow: overlay`
-- `.overflow-x-overlay` - Sets `overflow-x: overlay`
-- `.overflow-y-overlay` - Sets `overflow-y: overlay`
+### Overflow Overlay Utilities
+
+- `.overflow-overlay` - Sets `overflow: overlay` with fallback support
+- `.overflow-x-overlay` - Sets `overflow-x: overlay` with fallback support
+- `.overflow-y-overlay` - Sets `overflow-y: overlay` with fallback support
+
+### Smallscroll Utility
+
+- `.smallscroll` - Adds thin, styled scrollbars for both Firefox and Chrome/WebKit browsers
+  - Customizable via CSS variables:
+    - `--sb-width`: Scrollbar width (default: 8px)
+    - `--sb-radius`: Scrollbar thumb border radius (default: 4px)
+    - `--sb-color`: Scrollbar color (default: #666b7a)
+
+### Resizer Utility
+
+- `.resizer` - Adds a custom resize handle with a visual grip pattern
 
 ## Example
 
 ```html
-<div class="overflow-overlay">
+<!-- Overflow overlay -->
+<div class="overflow-overlay h-64 w-64">
   <!-- Content with overlay scrollbars -->
 </div>
 
-<div class="overflow-y-overlay">
+<!-- Vertical overlay scrollbar -->
+<div class="overflow-y-overlay h-64">
   <!-- Content with vertical overlay scrollbar -->
 </div>
+
+<!-- Custom thin scrollbars -->
+<div class="smallscroll overflow-auto h-64">
+  <!-- Content with thin, styled scrollbars -->
+</div>
+
+<!-- Custom scrollbar colors -->
+<div class="smallscroll overflow-auto h-64" style="--sb-color: #3b82f6">
+  <!-- Blue scrollbars -->
+</div>
+
+<!-- Textarea with custom resize handle -->
+<textarea class="resizer resize w-full h-32">
+  <!-- Textarea with custom resize grip -->
+</textarea>
 ```
 
 ## Development
@@ -78,8 +152,14 @@ pnpm run publish:npm
 ## Requirements
 
 - Node.js >= 18.0.0
-- pnpm >= 10.0.0
-- Tailwind CSS v4.x
+- pnpm >= 10.0.0 (for development)
+- Tailwind CSS v3.x or v4.x
+
+## Browser Compatibility
+
+- **Overflow overlay**: Supported in Chromium-based browsers (Chrome, Edge, Opera). Falls back gracefully in other browsers.
+- **Smallscroll**: Works in all modern browsers with optimized styling for both Firefox and WebKit/Blink browsers.
+- **Resizer**: Works in WebKit/Blink browsers (Chrome, Edge, Safari, Opera).
 
 ## License
 
