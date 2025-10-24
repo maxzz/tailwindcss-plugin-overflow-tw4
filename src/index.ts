@@ -9,6 +9,8 @@ import * as plugin from 'tailwindcss/plugin';
  * for custom scrollbar implementations.
  */
 export function overflowPlugin({ addUtilities }: plugin.PluginAPI) {
+
+    // 1. Dperecated approach but still works as 'auto'
     /*
     Don't use plugin: tailwind cannot have two overlays: auto and overlay at the same time and will break for Firefox. Use index.css instead: 
         @layer utilities {
@@ -19,10 +21,9 @@ export function overflowPlugin({ addUtilities }: plugin.PluginAPI) {
         }
         //TODO: Is it still true? It is still true for tailwind 3.2.0.
     */
-    
     const overlays = {
         '.overflow-overlay': {
-            // 'overflow': 'auto', // TODO: object can't have multiple properties with the same name
+            // 'overflow': 'auto', // Js object can't have multiple properties with the same name vs. CSS
             'overflow': 'overlay',
         },
         '.overflow-y-overlay': {
@@ -34,20 +35,21 @@ export function overflowPlugin({ addUtilities }: plugin.PluginAPI) {
             'overflow-x': 'overlay',
         },
 
-        "@supports (overflow: overlay)": {
-            ".overflow-overlay": {
-                'overflow': "overlay",
-            },
-            '.overflow-y-overlay': {
-                'overflow-y': 'overlay',
-            },
-            '.overflow-x-overlay': {
-                'overflow-x': 'overlay',
-            },
-        }
+        // "@supports (overflow: overlay)": {
+        //     ".overflow-overlay": {
+        //         'overflow': "overlay",
+        //     },
+        //     '.overflow-y-overlay': {
+        //         'overflow-y': 'overlay',
+        //     },
+        //     '.overflow-x-overlay': {
+        //         'overflow-x': 'overlay',
+        //     },
+        // }
     };
     addUtilities(overlays);
 
+    // 2. Custom small scrollbars
     const smallscroll = {
         /* Firefox scrollbars */
         ".smallscroll": {
@@ -74,9 +76,9 @@ export function overflowPlugin({ addUtilities }: plugin.PluginAPI) {
             backgroundColor: "transparent",
         },
     };
-    addUtilities(smallscroll);
+    addUtilities(smallscroll); // as alternative //https://github.com/adoxography/tailwind-scrollbar
 
-    // Additional customizations can be done from the app like: [&::-webkit-resizer]:rounded
+    // 3. Custom resizer. Additional customizations can be done from the app like: [&::-webkit-resizer]:rounded
     const resizer = {
         ".resizer": {
             "&::-webkit-resizer": {

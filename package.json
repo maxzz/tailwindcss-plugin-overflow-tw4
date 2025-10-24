@@ -1,6 +1,6 @@
 {
     "name": "tailwindcss-plugin-overflow-tw4",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "author": "Max Zakharzhevskiy",
     "license": "MIT",
     "description": "Tailwind CSS v4 plugin for overflow overlay utilities",
@@ -22,9 +22,14 @@
     "types": "./dist/tw-overflow.d.ts",
     "exports": {
         ".": {
-            "import": "./dist/tw-overflow.js",
-            "require": "./dist/tw-overflow.cjs",
-            "types": "./dist/tw-overflow.d.ts"
+            "import": {
+                "types": "./dist/tw-overflow.d.ts",
+                "default": "./dist/tw-overflow.js"
+            },
+            "require": {
+                "types": "./dist/tw-overflow.d.ts",
+                "default": "./dist/tw-overflow.cjs"
+            }
         }
     },
     "files": [
